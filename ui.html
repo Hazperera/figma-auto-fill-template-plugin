@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <p>Title: <input id="title" /></p>
+    <p>Subtitle: <input id="subtitle" /></p>
+    <p>Image URL: <input id="imgUrl" /></p>
+    <button id="send">Apply</button>
+
+    <script>
+      document.getElementById('send').onclick = () => {
+        parent.postMessage({
+          pluginMessage: {
+            type: 'apply-content',
+            title: document.getElementById('title').value,
+            subtitle: document.getElementById('subtitle').value,
+            imgUrl: document.getElementById('imgUrl').value
+          }
+        }, '*');
+      };
+    </script>
+  </body>
+</html>
