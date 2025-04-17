@@ -1,22 +1,33 @@
-<!DOCTYPE html>
-<html>
-  <body>
-    <p>Title: <input id="title" /></p>
-    <p>Subtitle: <input id="subtitle" /></p>
-    <p>Image URL: <input id="imgUrl" /></p>
-    <button id="send">Apply</button>
+<body>
+  <div id="form"></div>
+  <button id="send">Apply</button>
 
-    <script>
-      document.getElementById('send').onclick = () => {
-        parent.postMessage({
-          pluginMessage: {
-            type: 'apply-content',
-            title: document.getElementById('title').value,
-            subtitle: document.getElementById('subtitle').value,
-            imgUrl: document.getElementById('imgUrl').value
-          }
-        }, '*');
-      };
-    </script>
-  </body>
-</html>
+  <script>
+    const fields = [
+  { id: 'title', label: 'Title' },
+  { id: 'subtitle', label: 'Subtitle' },
+  { id: 'imgUrl', label: 'Main Image URL' },
+  { id: 'circle_text', label: '100% Online' },
+  { id: 'rectangle_text1', label: 'Personalised Learning' },
+  { id: 'rectangle_text2', label: 'Expert Knowledge' },
+  { id: 'long_text', label: 'Earn a Professional Certificate' }
+
+];
+
+    const formContainer = document.getElementById('form');
+    fields.forEach(field => {
+      const p = document.createElement('p');
+      p.innerHTML = `${field.label}: <input id="${field.id}" />`;
+      formContainer.appendChild(p);
+    });
+
+    document.getElementById('send').onclick = () => {
+      const message = { type: 'apply-content' };
+      fields.forEach(field => {
+        message[field.id] = document.getElementById(field.id).value;
+      });
+
+      parent.postMessage({ pluginMessage: message }, '*');
+    };
+  </script>
+</body>

@@ -1,0 +1,10 @@
+const fields = [
+  { id: 'title', label: 'Title' },
+  { id: 'subtitle', label: 'Subtitle' },
+  { id: 'imgUrl', label: 'Main Image URL' },
+  { id: 'circle_text', label: '100% Online' },
+  { id: 'rectangle_text1', label: 'Personalised Learning' },
+  { id: 'rectangle_text2', label: 'Expert Knowledge' },
+  { id: 'long_text', label: 'Earn a Professional Certificate' }
+
+];
