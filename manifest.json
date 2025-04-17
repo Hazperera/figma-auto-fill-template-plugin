@@ -1,6 +1,6 @@
 {
-  "name": "Figma Auto Fill Template Plugin",
-  "id": "figma-auto-fill-template-plugin",
+  "name": "Dynamic Auto Fill Plugin",
+  "id": "dynamic-auto-fill-plugin",
   "api": "1.0.0",
   "main": "code.js",
   "ui": "ui.html",
